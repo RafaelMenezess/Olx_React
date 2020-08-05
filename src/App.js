@@ -1,14 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
+
+import Home from './pages/Home';
+import Sobre from './pages/Sobre';
 
 function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        Nome: {props.name}
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          Nome: {props.name}
+        </header>
+
+        <Route exact path="/" component={Home} />
+        <Route exact path="/sobre" component={Sobre} />
+
+
+      </div>    
+    </BrowserRouter>
   );
 }
 const mapStateToProps = (state) => {
