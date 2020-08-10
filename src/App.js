@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
+import Header from './components/partials/Header'
 
 
 import Home from './pages/Home';
@@ -11,9 +12,7 @@ function App(props) {
   return (
     <BrowserRouter>
       <div className="App">
-        <header className="App-header">
-          Nome: {props.name}
-        </header>
+        < Header user={props.user} /> 
 
         <Route exact path="/" component={Home} />
         <Route exact path="/sobre" component={Sobre} />
@@ -25,7 +24,7 @@ function App(props) {
 }
 const mapStateToProps = (state) => {
   return{
-    name:state.user.name
+    user:state.user
   }
 }
 export default connect(mapStateToProps)(App);
